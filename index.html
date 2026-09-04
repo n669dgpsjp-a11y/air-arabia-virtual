@@ -2,40 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#d71920"><meta name="description" content="Air Arabia — flight search, destinations and travel information.">
+<meta name="theme-color" content="#d71920"><meta name="description" content="Air Arabia fan-made airline experience.">
 <title>Air Arabia | Fly further</title>
 <link rel="icon" href="assets/logo-bird.webp">
 <link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="branding.css">
 </head>
 <body>
-<div class="site-shell">
-<div class="virtual-strip"><span>UNOFFICIAL FAN-MADE ROBLOX AIRLINE — NOT AFFILIATED WITH AIR ARABIA PJSC</span></div>
-<header class="navbar">
-<a class="brand brand-logo" href="#top" aria-label="Air Arabia home"><img src="assets/logo-wordmark.webp" alt="Air Arabia"></a>
-<nav class="navlinks" id="navlinks"><a href="#book">Book</a><a href="#manage">Manage</a><a href="#destinations">Destinations</a><a href="#community">About us</a><a href="#about">Careers</a></nav>
-<div class="nav-actions"><button class="icon-button" data-demo="Language selector coming soon.">🌐 <span>EN</span></button><button class="login-button" data-demo="Sign in coming soon.">◉ Sign in</button><button class="mobile-menu" id="menuBtn">☰</button></div>
+<div class="legal-strip">UNOFFICIAL FAN-MADE ROBLOX AIRLINE · NOT AFFILIATED WITH AIR ARABIA PJSC</div>
+<header class="site-header">
+<a class="logo-link" href="index.html"><img src="assets/logo-wordmark.webp" alt="Air Arabia"></a>
+<nav id="mainNav"><a href="#book">Book</a><a href="scheduled-departures.html">Departures</a><a href="#deals">Deals</a><a href="#news">News</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></nav>
+<div class="header-actions"><a class="manager-link" href="manager-login.html">Manager login</a><button class="menu-btn" id="menuBtn">☰</button></div>
 </header>
-<main id="top">
-<section class="hero real-photo-hero"><div class="hero-bg"></div><div class="hero-content"><div class="eyebrow">DISCOVER MORE</div><h1>Fly further.<br><em>Fly together.</em></h1><p>Discover simple travel, convenient connections and a growing network of destinations.</p><div class="hero-pills"><span>✓ Easy booking</span><span>✈ Scheduled departures</span><span>◎ Great destinations</span></div></div><div class="photo-credit">Aircraft photo: Anna Zvereva · CC BY-SA 2.0</div></section>
-<section class="booking-wrap" id="book"><div class="booking-card"><div class="booking-tabs"><button class="active">✈ Flights</button><button data-demo="Group bookings coming soon.">👥 Group bookings</button></div><div class="trip-switch"><button class="selected" data-trip="return"><span class="radio"><span></span></span>Return</button><button data-trip="oneway"><span class="radio"></span>One way</button></div><div class="booking-grid">
-<label class="field"><span>From</span><div class="select-wrap">✈<select id="from"></select><b>⌄</b></div></label><button class="swap" id="swap">⇄</button>
-<label class="field"><span>To</span><div class="select-wrap">✈<select id="to"></select><b>⌄</b></div></label>
-<label class="field"><span>Departure</span><div class="input-wrap">▣<input type="date" value="2026-09-12"></div></label>
-<label class="field" id="returnField"><span>Return</span><div class="input-wrap">▣<input id="returnDate" type="date" value="2026-09-19"></div></label>
-<label class="field"><span>Passengers</span><div class="input-wrap">👥<input value="1 Passenger" readonly></div></label>
-<button class="search-btn" id="searchBtn">Search flights</button></div><p class="booking-note">All flights are free. This unofficial fan-made site does not sell real-world tickets or accept payment.</p></div></section>
-<section class="demo-results" id="results" hidden><div><strong>Search:</strong> <span id="routeText"></span></div><span>Flight availability will appear here.</span><button id="closeResult">Close</button></section>
-<section class="section" id="destinations"><div class="section-head"><div><span class="kicker">TOP DESTINATIONS</span><h2>Where will you go next?</h2><p>Explore a selection of popular destinations across the network.</p></div><button class="text-link" data-demo="Interactive route map coming soon.">View route map →</button></div><div class="destination-grid" id="destinationGrid"></div></section>
-<section class="feature-band" id="manage"><div class="section-head light"><div><span class="kicker">MANAGE YOUR TRIP</span><h2>Everything you need in one place</h2></div></div><div class="feature-grid">
-<button class="feature-card" data-demo="Manage booking coming soon."><span class="feature-icon">✎</span><div><h3>Manage booking</h3><p>Review your trip details and make changes before departure.</p></div><span class="feature-arrow">→</span></button>
-<button class="feature-card" data-demo="Flight status coming soon."><span class="feature-icon">◷</span><div><h3>Flight status</h3><p>Check the latest status of your upcoming departure.</p></div><span class="feature-arrow">→</span></button>
-<button class="feature-card" data-demo="Online check-in coming soon."><span class="feature-icon">✓</span><div><h3>Online check-in</h3><p>Save time before you travel with quick online check-in.</p></div><span class="feature-arrow">→</span></button>
-<button class="feature-card" data-demo="Travel information coming soon."><span class="feature-icon">i</span><div><h3>Travel information</h3><p>Find useful guidance before your journey begins.</p></div><span class="feature-arrow">→</span></button>
+<main>
+<section class="hero hero-aircraft">
+<div class="hero-shade"></div>
+<div class="hero-inner"><span class="eyebrow">FLY WITH AIR ARABIA</span><h1>Your journey<br>starts here.</h1><p>Simple travel, scheduled departures and destinations across the network.</p></div>
+<div class="photo-credit">Aircraft photo: Anna Zvereva · CC BY-SA 2.0</div>
+</section>
+<section class="booking-shell" id="book"><div class="booking-card">
+<div class="booking-top"><div class="booking-tabs"><button class="active">Flights</button></div><div class="trip-type"><label><input type="radio" name="trip" value="return" checked> Return</label><label><input type="radio" name="trip" value="oneway"> One way</label></div></div>
+<div class="booking-grid">
+<label><span>From</span><select id="from"></select></label>
+<button class="swap-btn" id="swap" aria-label="Swap airports">⇄</button>
+<label><span>To</span><select id="to"></select></label>
+<label><span>Departure</span><input id="departureDate" type="date"></label>
+<label id="returnField"><span>Return</span><input id="returnDate" type="date"></label>
+<label><span>Passengers</span><select id="passengers"><option>1 Passenger</option><option>2 Passengers</option><option>3 Passengers</option><option>4 Passengers</option></select></label>
+<button class="primary-btn search-book-btn" id="searchFlights">Search & book</button>
+</div>
+<div class="booking-smallprint">All fares shown on this fan project are 0R$. No real-world tickets or payments are offered.</div>
 </div></section>
-<section class="section community" id="community"><div class="community-copy"><span class="kicker">ABOUT AIR ARABIA</span><h2>Making travel simple.</h2><p>Designed around straightforward booking, useful travel information and a smooth passenger journey from search to departure.</p><div class="cta-row"><button class="primary" data-demo="About page coming soon.">Discover more →</button><button class="secondary" data-demo="Contact page coming soon.">Contact us</button></div></div><div class="stats-card"><div><strong>SHJ</strong><span>Sharjah</span></div><div><strong>0R$</strong><span>Starting fare</span></div><div><strong>08</strong><span>Destinations</span></div><div><strong>24/7</strong><span>Online access</span></div></div></section>
-<section class="section careers" id="about"><div class="career-panel"><div class="career-icon">▰</div><div><span class="kicker">CAREERS</span><h2>Be part of the journey.</h2><p>Explore opportunities across cabin services, flight operations, ground services and management.</p></div><button class="primary" data-demo="Careers portal coming soon.">View careers →</button></div></section>
+<section class="content-section" id="deals">
+<div class="section-heading"><div><span class="section-kicker">TOP DEALS</span><h2>Where will you go next?</h2></div><a href="scheduled-departures.html">View scheduled departures →</a></div>
+<div class="deals-grid" id="dealsGrid"></div>
+</section>
+<section class="news-section" id="news"><div class="content-section">
+<div class="section-heading"><div><span class="section-kicker">LATEST NEWS</span><h2>From Air Arabia</h2><p>Updates, announcements and operational news from our team.</p></div></div>
+<div class="news-grid" id="newsGrid"></div>
+</div></section>
+<section class="quick-links"><div class="content-section quick-grid">
+<a class="quick-card" href="contact.html"><span class="quick-icon">✉</span><div><small>NEED HELP?</small><h3>Contact us</h3><p>Send our team an enquiry.</p></div><b>→</b></a>
+<a class="quick-card" href="careers.html"><span class="quick-icon">◫</span><div><small>JOIN THE TEAM</small><h3>Careers</h3><p>Search current opportunities by role and base.</p></div><b>→</b></a>
+<a class="quick-card" href="scheduled-departures.html"><span class="quick-icon">◷</span><div><small>FLIGHT INFORMATION</small><h3>Scheduled departures</h3><p>Search upcoming services and times.</p></div><b>→</b></a>
+</div></section>
 </main>
-<footer><div class="footer-main"><div class="footer-brand"><div class="footer-logo-wrap"><img src="assets/logo-bilingual.webp" alt="Air Arabia"></div><p>This is an unofficial, fan-made Roblox aviation project inspired by Air Arabia. It is not affiliated with, endorsed by, or operated by Air Arabia PJSC. No real-world flights, bookings or payments are offered.</p><p class="image-credits">Hero aircraft photography: Anna Zvereva · CC BY-SA 2.0.</p></div><div><h4>Plan</h4><a href="#book">Book</a><a href="#destinations">Destinations</a><a href="#manage">Flight status</a></div><div><h4>Manage</h4><a href="#manage">Manage booking</a><a href="#manage">Check-in</a><a href="#manage">Travel information</a></div><div><h4>Company</h4><a href="#community">About us</a><a href="#about">Careers</a><a href="#community">Contact</a></div></div><div class="footer-bottom"><span>© 2026 Air Arabia fan project.</span><span>Unofficial Roblox experience · Not affiliated with Air Arabia PJSC.</span></div></footer>
-<div class="toast" id="toast" hidden>✓ <span id="toastText"></span></div>
-</div><script src="app.js"></script></body></html>
+<footer><div class="footer-inner"><div class="footer-brand"><img src="assets/logo-bilingual.webp" alt="Air Arabia"><p>This is an unofficial fan-made Roblox project inspired by Air Arabia. It is not affiliated with, endorsed by, or operated by Air Arabia PJSC. No real-world flights, bookings or payments are offered.</p></div><div><h4>Travel</h4><a href="#book">Book</a><a href="scheduled-departures.html">Departures</a><a href="#deals">Deals</a></div><div><h4>Information</h4><a href="#news">News</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a></div><div><h4>Team</h4><a href="manager-login.html">Manager login</a></div></div><div class="footer-bottom"><span>© 2026 Air Arabia fan project.</span><span>Unofficial · Not affiliated with Air Arabia PJSC.</span></div></footer>
+<script src="app.js"></script>
+</body></html>
