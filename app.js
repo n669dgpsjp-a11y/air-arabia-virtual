@@ -1,18 +1,14 @@
-const airports = [
-  ['SHJ','Sharjah','United Arab Emirates'],['DXB','Dubai','United Arab Emirates'],['DOH','Doha','Qatar'],['LHR','London','United Kingdom'],['MAN','Manchester','United Kingdom'],['CAI','Cairo','Egypt'],['BOM','Mumbai','India'],['IST','Istanbul','Türkiye']
-];
-const destinations = [
-  ['DOH','Doha','Qatar'],['CAI','Cairo','Egypt'],['IST','Istanbul','Türkiye'],['LHR','London','United Kingdom']
-];
-const from = document.querySelector('#from'), to = document.querySelector('#to');
-for (const [code,city] of airports) { for (const s of [from,to]) { const o=document.createElement('option'); o.value=code; o.textContent=`${city} (${code})`; s.appendChild(o); } }
-from.value='SHJ';to.value='DOH';
-document.querySelector('#destinationGrid').innerHTML = destinations.map((d,i)=>`<article class="destination-card"><div class="destination-art art-${i+1}"><span>${d[0]}</span><b>✈</b></div><div class="destination-body"><div><small>${d[2]}</small><h3>${d[1]}</h3></div><div class="fare"><strong>From 0R$</strong></div></div></article>`).join('');
-const toast=document.querySelector('#toast'),toastText=document.querySelector('#toastText');let timer;
-function demo(msg){toastText.textContent=msg;toast.hidden=false;clearTimeout(timer);timer=setTimeout(()=>toast.hidden=true,2600)}
-document.querySelectorAll('[data-demo]').forEach(el=>el.addEventListener('click',()=>demo(el.dataset.demo)));
-document.querySelector('#swap').onclick=()=>{const a=from.value;from.value=to.value;to.value=a};
-document.querySelector('#searchBtn').onclick=()=>{document.querySelector('#routeText').textContent=`${from.value} → ${to.value}`;document.querySelector('#results').hidden=false};
-document.querySelector('#closeResult').onclick=()=>document.querySelector('#results').hidden=true;
-document.querySelectorAll('[data-trip]').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('[data-trip]').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected');const one=btn.dataset.trip==='oneway';document.querySelector('#returnField').classList.toggle('disabled',one);document.querySelector('#returnDate').disabled=one});
-document.querySelector('#menuBtn').onclick=()=>document.querySelector('#navlinks').classList.toggle('open');
+const airports=[['SHJ','Sharjah'],['CAI','Cairo'],['IST','Istanbul'],['BOM','Mumbai'],['CMB','Colombo'],['TBS','Tbilisi'],['BKK','Bangkok'],['DOH','Doha'],['MCT','Muscat']];
+const defaultDeals=[['SHJ','CAI','Sharjah','Cairo'],['SHJ','IST','Sharjah','Istanbul'],['SHJ','BOM','Sharjah','Mumbai'],['SHJ','CMB','Sharjah','Colombo'],['SHJ','TBS','Sharjah','Tbilisi'],['SHJ','BKK','Sharjah','Bangkok']];
+const defaultNews=[{id:1,date:'01/02/26',title:'Welcome to our new website',summary:'A refreshed digital home for booking, departures, careers and the latest announcements.',image:''},{id:2,date:'18/01/26',title:'Scheduled departures are now available',summary:'Search upcoming services by route and date from the new departures page.',image:''},{id:3,date:'05/01/26',title:'Applications open for selected roles',summary:'Explore current opportunities and filter vacancies by department and base.',image:''}];
+const byId=id=>document.getElementById(id);
+const from=byId('from'),to=byId('to');
+if(from&&to){airports.forEach(([code,city])=>{[from,to].forEach(s=>{const o=document.createElement('option');o.value=code;o.textContent=`${city} (${code})`;s.appendChild(o)})});from.value='SHJ';to.value='CAI';}
+const dep=byId('departureDate'),ret=byId('returnDate');if(dep&&ret){const d=new Date();d.setDate(d.getDate()+7);dep.value=d.toISOString().slice(0,10);d.setDate(d.getDate()+7);ret.value=d.toISOString().slice(0,10)}
+byId('swap')?.addEventListener('click',()=>{const x=from.value;from.value=to.value;to.value=x});
+document.querySelectorAll('input[name="trip"]').forEach(r=>r.addEventListener('change',()=>{const one=r.value==='oneway'&&r.checked;byId('returnField').style.opacity=one?'.45':'1';ret.disabled=one}));
+byId('searchFlights')?.addEventListener('click',()=>{const q=new URLSearchParams({from:from.value,to:to.value,date:dep.value,passengers:byId('passengers').value});location.href=`scheduled-departures.html?${q.toString()}`});
+const dealsGrid=byId('dealsGrid');if(dealsGrid)dealsGrid.innerHTML=defaultDeals.map((d,i)=>`<article class="deal-card"><div class="deal-visual" style="background:${['linear-gradient(135deg,#9a6f57,#d4ad88)','linear-gradient(135deg,#5d7788,#aec4cf)','linear-gradient(135deg,#8f7657,#d5b878)','linear-gradient(135deg,#3f7181,#9bc3cb)','linear-gradient(135deg,#5c7168,#a5c2b1)','linear-gradient(135deg,#574f7a,#aaa0cf)'][i]}"><span class="route-code">${d[1]}</span></div><div class="deal-body"><div class="deal-route">${d[2]} → ${d[3]}</div><div class="deal-meta">One way · Selected departures</div><div class="deal-price"><div><small>From</small><br><strong>0R$</strong></div><a href="scheduled-departures.html?from=${d[0]}&to=${d[1]}">View flights →</a></div></div></article>`).join('');
+function readNews(){try{return JSON.parse(localStorage.getItem('aa_news'))||defaultNews}catch{return defaultNews}}
+const newsGrid=byId('newsGrid');if(newsGrid){const news=readNews().sort((a,b)=>String(b.date).localeCompare(String(a.date))).slice(0,6);newsGrid.innerHTML=news.map(n=>`<article class="news-card"><div class="news-media">${n.image?`<img src="${n.image}" alt="">`: `<div class="date-art"><strong>${n.date}</strong></div>`}${n.image?`<span class="news-date-badge">${n.date}</span>`:''}</div><div class="news-body"><small>NEWS · ${n.date}</small><h3>${n.title}</h3><p>${n.summary||''}</p></div></article>`).join('')}
+byId('menuBtn')?.addEventListener('click',()=>byId('mainNav')?.classList.toggle('open'));
