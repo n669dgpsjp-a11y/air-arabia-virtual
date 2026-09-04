@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#d71920"><meta name="description" content="Air Arabia Virtual — an unofficial Roblox aviation community.">
+<title>Air Arabia Virtual | Roblox Aviation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="site-shell">
+<div class="virtual-strip">✈ <span>UNOFFICIAL ROBLOX VIRTUAL AIRLINE — NOT AFFILIATED WITH AIR ARABIA PJSC</span></div>
+<header class="navbar">
+<a class="brand" href="#top"><span class="brand-mark">✈</span><span class="brand-copy"><strong>air arabia</strong><small>VIRTUAL</small></span></a>
+<nav class="navlinks" id="navlinks"><a href="#book">Book</a><a href="#manage">Manage</a><a href="#destinations">Destinations</a><a href="#community">Community</a><a href="#about">About</a></nav>
+<div class="nav-actions"><button class="icon-button" data-demo="Language selector ready to connect.">🌐 <span>EN</span></button><button class="login-button" data-demo="Member login can be connected to Roblox or your own backend.">◉ Member login</button><button class="mobile-menu" id="menuBtn">☰</button></div>
+</header>
+<main id="top">
+<section class="hero"><div class="hero-bg"></div><div class="hero-content"><div class="eyebrow">✦ Fly. Roleplay. Connect.</div><h1>Where your next<br><em>virtual journey</em> begins.</h1><p>Experience scheduled Roblox aviation events, realistic operations and a community inspired by the spirit of low-cost travel.</p><div class="hero-pills"><span>✓ Professional operations</span><span>👥 Community-led</span></div></div></section>
+<section class="booking-wrap" id="book"><div class="booking-card"><div class="booking-tabs"><button class="active">✈ Flights</button><button data-demo="Group flight requests module can be added next.">👥 Group flights</button></div><div class="trip-switch"><button class="selected" data-trip="return"><span class="radio"><span></span></span>Return</button><button data-trip="oneway"><span class="radio"></span>One way</button></div><div class="booking-grid">
+<label class="field"><span>From</span><div class="select-wrap">✈<select id="from"></select><b>⌄</b></div></label><button class="swap" id="swap">⇄</button>
+<label class="field"><span>To</span><div class="select-wrap">✈<select id="to"></select><b>⌄</b></div></label>
+<label class="field"><span>Departure</span><div class="input-wrap">▣<input type="date" value="2026-09-12"></div></label>
+<label class="field" id="returnField"><span>Return</span><div class="input-wrap">▣<input id="returnDate" type="date" value="2026-09-19"></div></label>
+<label class="field"><span>Passengers</span><div class="input-wrap">👥<input value="1 Passenger" readonly></div></label>
+<button class="search-btn" id="searchBtn">⌕ Search flights</button></div><p class="booking-note">Demo booking interface for roleplay use only — no real tickets or payments.</p></div></section>
+<section class="demo-results" id="results" hidden><div><strong>Demo search:</strong> <span id="routeText"></span></div><span>No live schedule connected yet.</span><button id="closeResult">Close</button></section>
+<section class="section" id="destinations"><div class="section-head"><div><span class="kicker">EXPLORE</span><h2>Popular virtual destinations</h2><p>Build your network around events, scheduled services and Roblox community demand.</p></div><button class="text-link" data-demo="Interactive route map placeholder.">View route map →</button></div><div class="destination-grid" id="destinationGrid"></div></section>
+<section class="feature-band" id="manage"><div class="section-head light"><div><span class="kicker">YOUR JOURNEY</span><h2>Everything in one place</h2></div></div><div class="feature-grid">
+<button class="feature-card" data-demo="Route network page placeholder — ready to expand."><span class="feature-icon">⌖</span><div><h3>Route network</h3><p>Explore the destinations operated by our Roblox group.</p></div><span class="feature-arrow">→</span></button>
+<button class="feature-card" data-demo="Flight status page placeholder — ready to expand."><span class="feature-icon">◷</span><div><h3>Flight status</h3><p>A polished space ready for live event and flight tracking.</p></div><span class="feature-arrow">→</span></button>
+<button class="feature-card" data-demo="Travel guide page placeholder — ready to expand."><span class="feature-icon">▣</span><div><h3>Travel guide</h3><p>Publish check-in, airport and roleplay guidance for passengers.</p></div><span class="feature-arrow">→</span></button>
+<button class="feature-card" data-demo="Join page placeholder — ready to expand."><span class="feature-icon">👥</span><div><h3>Join the group</h3><p>Turn visitors into passengers, crew and community members.</p></div><span class="feature-arrow">→</span></button>
+</div></section>
+<section class="section community" id="community"><div class="community-copy"><span class="kicker">AIR ARABIA VIRTUAL</span><h2>More than a flight.<br>A Roblox aviation community.</h2><p>Run realistic departures, build a trained crew team, host destination events and give your members a polished hub for everything your group does.</p><div class="cta-row"><button class="primary" data-demo="Add your Roblox group link here.">Join our Roblox group →</button><button class="secondary" data-demo="Discord/community link placeholder.">Community hub</button></div></div><div class="stats-card"><div><strong>01</strong><span>Sharjah-inspired hub</span></div><div><strong>08</strong><span>Starter destinations</span></div><div><strong>A320</strong><span>Core virtual fleet</span></div><div><strong>24/7</strong><span>Community access</span></div></div></section>
+<section class="section careers" id="about"><div class="career-panel"><div class="career-icon">▰</div><div><span class="kicker">GROW WITH US</span><h2>Build the team behind every departure.</h2><p>Create applications for pilots, cabin crew, ground operations and management with role-specific pages later.</p></div><button class="primary" data-demo="Careers/application portal placeholder.">Explore careers →</button></div></section>
+</main>
+<footer><div class="footer-main"><div class="footer-brand"><div class="brand inverse"><span class="brand-mark">✈</span><span class="brand-copy"><strong>air arabia</strong><small>VIRTUAL</small></span></div><p>An unofficial Roblox aviation community inspired by Air Arabia. No real-world flights, bookings or commercial services are offered.</p></div><div><h4>Fly</h4><a href="#book">Book a virtual flight</a><a href="#destinations">Destinations</a><a href="#manage">Flight status</a></div><div><h4>Community</h4><a href="#community">Roblox group</a><a href="#community">Events</a><a href="#about">Careers</a></div><div><h4>Help</h4><a href="#about">About</a><a href="#about">Contact</a><a href="#about">Rules</a></div></div><div class="footer-bottom"><span>© 2026 Air Arabia Virtual. Fan-made Roblox project.</span><span>Not affiliated with Air Arabia PJSC.</span></div></footer>
+<div class="toast" id="toast" hidden>✓ <span id="toastText"></span></div>
+</div><script src="app.js"></script></body></html>
