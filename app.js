@@ -7,7 +7,7 @@ const destinations = [
 const from = document.querySelector('#from'), to = document.querySelector('#to');
 for (const [code,city] of airports) { for (const s of [from,to]) { const o=document.createElement('option'); o.value=code; o.textContent=`${city} (${code})`; s.appendChild(o); } }
 from.value='SHJ';to.value='DOH';
-document.querySelector('#destinationGrid').innerHTML = destinations.map((d,i)=>`<article class="destination-card"><div class="destination-art art-${i+1}"><span>${d[0]}</span><b>✈</b></div><div class="destination-body"><div><small>${d[2]}</small><h3>${d[1]}</h3></div><div class="fare"><small>From</small><strong>0R$</strong></div></div></article>`).join('');
+document.querySelector('#destinationGrid').innerHTML = destinations.map((d,i)=>`<article class="destination-card"><div class="destination-art art-${i+1}"><span>${d[0]}</span><b>✈</b></div><div class="destination-body"><div><small>${d[2]}</small><h3>${d[1]}</h3></div><div class="fare"><strong>From 0R$</strong></div></div></article>`).join('');
 const toast=document.querySelector('#toast'),toastText=document.querySelector('#toastText');let timer;
 function demo(msg){toastText.textContent=msg;toast.hidden=false;clearTimeout(timer);timer=setTimeout(()=>toast.hidden=true,2600)}
 document.querySelectorAll('[data-demo]').forEach(el=>el.addEventListener('click',()=>demo(el.dataset.demo)));
